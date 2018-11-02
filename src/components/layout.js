@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import favicon from '../../src/images/favicon.ico'
 
-// import Header from './header'
 import './layout.css'
 
 const Layout = ({ children }) => (
@@ -20,10 +20,14 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Helmet
+
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
+          ]}
+          link={[
+            { rel: 'icon', type: 'image/x-icon', href: `${favicon}` }
           ]}
         >
           <html lang="en" />
