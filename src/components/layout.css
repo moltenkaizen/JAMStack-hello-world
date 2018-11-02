@@ -629,11 +629,6 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
-  }
-}
 
 .main {
   display: flex;
@@ -642,13 +637,14 @@ pre tt:after {
   background: #fff;
   padding: 30px;
   margin-left: 40px;
-  transition: transform 500ms cubic-bezier(.5,.32,.25,1.34);
-  cursor: pointer;
+  animation: level 500ms 1 normal cubic-bezier(.5,.32,.25,1.34) forwards 1s;
 }
 
-
-.main:hover {
-  transform: rotate(0);
+@media only screen and (max-width: 480px) {
+  .main {
+    margin: 0;
+    width: 100vw;
+  }
 }
 
 .main__left {
@@ -693,4 +689,10 @@ pre tt:after {
   margin: 0;
   font-size: 18px;
   font-weight: 200;
+}
+
+@keyframes level {
+  100% {
+    transform: rotate(0);
+  }
 }
